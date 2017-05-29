@@ -28,6 +28,52 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+/[Bb]uilds/
+/[Ll]ibrary/
+sysinfo.txt
+*.stackdump
+/Assets/AssetStoreTools*
+*.apk
+*.unitypackage
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+*.pidb.meta
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+.consulo/
+/*.tmp
+/*.svd
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+Corridor/Library/ShaderCache/
+Corridor/Library/metadata/
+
 # Thumbnails
 ._*
 
@@ -45,3 +91,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+Prac/Library/CurrentMaximizeLayout.dwlt
+Prac/Library/shadercompiler-UnityShaderCompiler.exe0.log
+*.bakert
+Prac/Temp/UnityLockfile
+Prac/Temp/ProcessJobs/e9a6970f79cd12d8b075e7d72f1b07cb.bakert
