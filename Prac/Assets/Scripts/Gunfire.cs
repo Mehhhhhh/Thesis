@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gunfire : MonoBehaviour {
+public class Gunfire : MonoBehaviour {
 
 	
 	// Update is called once per frame
