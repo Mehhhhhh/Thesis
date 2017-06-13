@@ -6,6 +6,7 @@ public class crosshair : MonoBehaviour {
 
     private Animator anim;
     public GameObject ch;
+    public GameObject gun;
 
     private void Start()
     {
@@ -14,10 +15,9 @@ public class crosshair : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && gun.GetComponent<Animation>().IsPlaying("fire") == false)
         {
             anim.SetTrigger("shoot");
-
         }
     }
 
