@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour {
 
-    public static int CurrentAmmo ;
-    private int internalAmmo;
-    public GameObject display;
+    public int initial_total_ammo;
+    public int intial_current_ammo;
+    public int number_per_clip;
+    private int CurrentAmmo ;
+    public static int totalammo;
+    public GameObject display_total;
+    public GameObject display_current;
 
 	// Use this for initialization
 	void Start () {
-        CurrentAmmo = 20;
+        totalammo = initial_total_ammo;
+        CurrentAmmo = intial_current_ammo;
 	}
 	
 	// Update is called once per frame
@@ -19,8 +24,15 @@ public class Ammo : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) {
             CurrentAmmo--;
         }
-        internalAmmo = CurrentAmmo;
-        display.GetComponent<Text>().text ="" + internalAmmo ;
+        if (CurrentAmmo <= 0) {
+            CurrentAmmo += number_per_clip;
+            totalammo -= number_per_clip;
+        }
+        if (totalammo == 0 && CurrentAmmo == 0) {
+
+        }
+        display_total.GetComponent<Text>().text ="" + totalammo ;
+        display_current.GetComponent<Text>().text = "" + CurrentAmmo;
 
 	}
 }

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class AmmoSupply : MonoBehaviour {
 
-    private void OnCollisionEnter(Collision collision)
+    public AudioSource pickupsound;
+
+    private void OnTriggerEnter(Collider other)
     {
-        Ammo.CurrentAmmo += 10;
+        pickupsound.Play();
+        Ammo.totalammo += 10;
+        Destroy(this.gameObject);
     }
+
 
 }
