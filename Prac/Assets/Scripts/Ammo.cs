@@ -12,6 +12,8 @@ public class Ammo : MonoBehaviour {
     public static int totalammo;
     public GameObject display_total;
     public GameObject display_current;
+    public static bool isEmpty;
+    public GameObject gun;
 
 	// Use this for initialization
 	void Start () {
@@ -21,18 +23,60 @@ public class Ammo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire1")) {
-            CurrentAmmo--;
+        if (totalammo <= 0 && CurrentAmmo <= 0)
+        {
+            isEmpty = true;
         }
-        if (CurrentAmmo <= 0) {
+        else
+        {
+            isEmpty = false;
+            int diff = number_per_clip - CurrentAmmo;
+
+
+            if (Input.GetButtonDown("Fire1")) {
+            CurrentAmmo--;
+            }
+
+            
+
+
+            if (CurrentAmmo <= 0) {
+                auto_reload();
+                gun.GetComponent<Animation>().Play("reload");
+            }
+            if (Input.GetButtonDown("Reload")) {
+
+                if (diff > totalammo)
+                {
+                    CurrentAmmo += totalammo;
+                    totalammo = 0;
+                }
+                else
+                {
+                    CurrentAmmo = number_per_clip;
+                    totalammo -= diff;
+                }
+
+            }
+            display_total.GetComponent<Text>().text ="" + totalammo ;
+            display_current.GetComponent<Text>().text = "" + CurrentAmmo;
+        }
+    }
+
+    private void auto_reload() {
+
+        int diff = number_per_clip - CurrentAmmo;
+
+        if (diff > totalammo)
+        {
+            CurrentAmmo += totalammo;
+            totalammo = 0;
+        }
+        else
+        {
             CurrentAmmo += number_per_clip;
             totalammo -= number_per_clip;
         }
-        if (totalammo == 0 && CurrentAmmo == 0) {
+    }
 
-        }
-        display_total.GetComponent<Text>().text ="" + totalammo ;
-        display_current.GetComponent<Text>().text = "" + CurrentAmmo;
-
-	}
 }
