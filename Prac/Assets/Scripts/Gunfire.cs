@@ -6,6 +6,7 @@ public class Gunfire : MonoBehaviour
 {
 
     public GameObject gun;
+    public GameObject fire;
     private Animation anim;
 
     private void Start()
@@ -41,7 +42,12 @@ public class Gunfire : MonoBehaviour
     private void gun_anim_fire()
     {
         gun.GetComponent<Animation>()["fire"].speed = 2.0f;
+        if (!gun.GetComponent<Animation>().IsPlaying("fire"))
+        {
+            StartCoroutine(play_muzzleflash());
+        }
         gun.GetComponent<Animation>().Play("fire");
+       
     }
 
     private void gun_anim_reload()
@@ -53,6 +59,13 @@ public class Gunfire : MonoBehaviour
     private void gun_anim_idle()
     {
         gun.GetComponent<Animation>().Play("idle");
+    }
+
+    private IEnumerator play_muzzleflash() {
+        yield return new WaitForSeconds(0.05f);
+        fire.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        fire.SetActive(false) ;
     }
 
 }

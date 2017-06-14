@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class enemy : MonoBehaviour {
+
+    public GameObject gun;
     public int health = 10;
 
     public void deductpoints(int DamageAmount) {
+        if (!gun.GetComponent<Animation>().IsPlaying("fire")) { 
         health = health - DamageAmount;
+        }
     }
 
     void Update()
