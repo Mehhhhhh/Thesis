@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\AmmoSupply.cs" />
     <Compile Include="Assets\Scripts\Gunfire.cs" />
+    <Compile Include="Assets\Scripts\Opendoor.cs" />
+    <Compile Include="Assets\Scripts\Playercast.cs" />
     <Compile Include="Assets\Scripts\crosshair.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
     <Compile Include="Assets\Scripts\gundamage.cs" />
