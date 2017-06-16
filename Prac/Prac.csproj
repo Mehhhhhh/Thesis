@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\crosshair.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
     <Compile Include="Assets\Scripts\gundamage.cs" />
+    <Compile Include="Assets\Scripts\randomlight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Objects\Weapons\Colt m9\Shaders\BackfaceBumpedDiffuse.shader" />
