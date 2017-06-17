@@ -93,6 +93,11 @@
     <Compile Include="Assets\Scripts\crosshair.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
     <Compile Include="Assets\Scripts\gundamage.cs" />
+    <Compile Include="Assets\Scripts\gunpickup.cs" />
+    <Compile Include="Assets\Scripts\guns\g18_parametres.cs" />
+    <Compile Include="Assets\Scripts\guns\gun_parametres.cs" />
+    <Compile Include="Assets\Scripts\guns\m4_parametres.cs" />
+    <Compile Include="Assets\Scripts\m4.cs" />
     <Compile Include="Assets\Scripts\randomlight.cs" />
   </ItemGroup>
   <ItemGroup>

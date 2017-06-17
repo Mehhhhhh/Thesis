@@ -8,7 +8,7 @@ public class enemy : MonoBehaviour {
     public int health = 10;
 
     public void deductpoints(int DamageAmount) {
-        if (!gun.GetComponent<Animation>().IsPlaying("fire")) { 
+        if (!(gun.GetComponent<Animation>().IsPlaying("fire")|| gun.GetComponent<Animation>().IsPlaying("reload"))) { 
         health = health - DamageAmount;
         }
     }
