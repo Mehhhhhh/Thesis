@@ -5,13 +5,18 @@ using UnityEngine;
 public class Gunfire : MonoBehaviour
 {
 
-    public GameObject gun;
+    public GameObject player;
     public GameObject fire;
     private Animation anim;
+    public GameObject ammo;
+    gun_status status;
+    Ammo am;
 
     private void Start()
     {
-        anim = gun.GetComponent<Animation>();
+        status = player.GetComponent<gun_status>();
+        anim = status.get_carryinggun().GetComponent<Animation>();
+        am = (Ammo)ammo.GetComponent("Ammo");
     }
 
     // Update is called once per frame
@@ -32,7 +37,7 @@ public class Gunfire : MonoBehaviour
             gun_anim_reload();
         }
 
-        if (Input.GetButtonDown("Reload") && anim.IsPlaying("fire") == false && Ammo.totalammo != 0)
+        if (Input.GetButtonDown("Reload") && anim.IsPlaying("fire") == false && am.getTotalammo() != 0)
         {
             gun_anim_reload();
         }
@@ -41,24 +46,24 @@ public class Gunfire : MonoBehaviour
 
     private void gun_anim_fire()
     {
-        gun.GetComponent<Animation>()["fire"].speed = 2.0f;
-        if (!gun.GetComponent<Animation>().IsPlaying("fire"))
+        status.get_carryinggun().GetComponent<Animation>()["fire"].speed = 2.0f;
+        if (!status.get_carryinggun().GetComponent<Animation>().IsPlaying("fire"))
         {
             StartCoroutine(play_muzzleflash());
         }
-        gun.GetComponent<Animation>().Play("fire");
+        status.get_carryinggun().GetComponent<Animation>().Play("fire");
        
     }
 
     private void gun_anim_reload()
     {
-        gun.GetComponent<Animation>()["fire"].speed = 2.0f;
-        gun.GetComponent<Animation>().Play("reload");
+        status.get_carryinggun().GetComponent<Animation>()["fire"].speed = 2.0f;
+        status.get_carryinggun().GetComponent<Animation>().Play("reload");
     }
 
     private void gun_anim_idle()
     {
-        gun.GetComponent<Animation>().Play("idle");
+        status.get_carryinggun().GetComponent<Animation>().Play("idle");
     }
 
     private IEnumerator play_muzzleflash() {

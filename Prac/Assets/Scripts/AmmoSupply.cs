@@ -5,11 +5,18 @@ using UnityEngine;
 public class AmmoSupply : MonoBehaviour {
 
     public AudioSource pickupsound;
+    public GameObject ammo_script;
+    Ammo am;
+
+    private void Start()
+    {
+        am = (Ammo)ammo_script.GetComponent("Ammo");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         pickupsound.Play();
-        Ammo.totalammo += 10;
+        am.setTotalammo(am.getTotalammo()+10);
         Destroy(this.gameObject);
     }
 

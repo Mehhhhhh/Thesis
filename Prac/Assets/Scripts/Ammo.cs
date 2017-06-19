@@ -5,23 +5,25 @@ using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour {
 
-    public int initial_total_ammo;
-    public int intial_current_ammo;
-    public int number_per_clip;
+    private int number_per_clip;
     private int CurrentAmmo ;
-    public static int totalammo;
+    private int totalammo;
     public GameObject display_total;
     public GameObject display_current;
-    public GameObject gun;
+    public GameObject player;
+    private gun_status status;
     public static bool isEmpty;
     public static bool isAuto_reload;
     private Animation anim;
-
+    private gun_parametres gun;
 	// Use this for initialization
 	void Start () {
-        totalammo = initial_total_ammo;
-        CurrentAmmo = intial_current_ammo;
-        anim = gun.GetComponent<Animation>();
+        status = player.GetComponent<gun_status>();
+        gun = status.get_carrying_parametres();
+        totalammo = gun.Number_of_total_ammo;
+        CurrentAmmo = gun.Number_of_current_ammo;
+        number_per_clip = gun.Number_per_clip;
+        anim = status.get_carryinggun().GetComponent<Animation>();
     }
 	
 	// Update is called once per frame
@@ -83,6 +85,14 @@ public class Ammo : MonoBehaviour {
             CurrentAmmo += number_per_clip;
             totalammo -= number_per_clip;
         }
+    }
+
+    public void setTotalammo(int ammo) {
+        totalammo = ammo;
+    }
+
+    public int getTotalammo() {
+        return totalammo;
     }
 
 }

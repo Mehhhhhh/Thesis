@@ -10,11 +10,18 @@ public class gunpickup : MonoBehaviour {
     private int allowedrange;
     public GameObject realgun;
     public GameObject holdinggun;
+    public GameObject gun_mech;
+  //  public GameObject ammoscript;
+
+    Gunfire gf;
+   // Ammo ammo;
 
 	// Use this for initialization
 	void Start () {
         distance = Playercast.distance_to_target;
         allowedrange = 2;
+        gf = (Gunfire)gun_mech.GetComponent("Gunfire");
+        //ammo = (Ammo)ammoscript.GetComponent("Ammo");
     }
 	
 	// Update is called once per frame
@@ -44,7 +51,7 @@ public class gunpickup : MonoBehaviour {
 
     private void pickup() {
         realgun.SetActive(true);
-        GetComponent<GameObject>().SetActive(false);
+        this.gameObject.SetActive(false);
         holdinggun.SetActive(false);
     }
 
