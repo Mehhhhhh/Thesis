@@ -28,7 +28,7 @@ public class Opendoor : MonoBehaviour {
                textarea.GetComponent<Text>().text = "Press E to open";
                StartCoroutine(opendoor());
         }
-        }
+    }
 
     private void OnMouseExit()
     {

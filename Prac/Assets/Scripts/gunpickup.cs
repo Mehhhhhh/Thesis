@@ -23,7 +23,7 @@ public class gunpickup : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         distance = Playercast.distance_to_target;
-        allowedrange = 2;
+        allowedrange = 3;
         gf = (Gunfire)gun_mech.GetComponent("Gunfire");
         status = player.GetComponent<gun_status>();
         //ammo = (Ammo)ammoscript.GetComponent("Ammo");
@@ -47,11 +47,15 @@ public class gunpickup : MonoBehaviour {
         {
             display.GetComponent<Text>().text = " Pick up g18";
         }
+        else {
+            display.GetComponent<Text>().text = " ";
+        }
     }
+
 
     private void OnMouseExit()
     {
-        display.GetComponent<Text>().text = "";
+        display.GetComponent<Text>().text = " ";
     }
 
 

@@ -6,7 +6,6 @@ public class Gunfire : MonoBehaviour
 {
 
     public GameObject player;
-    public GameObject fire;
     private Animation anim;
     public GameObject ammo;
     gun_status status;
@@ -72,9 +71,9 @@ public class Gunfire : MonoBehaviour
 
     private IEnumerator play_muzzleflash() {
         yield return new WaitForSeconds(0.05f);
-        fire.SetActive(true);
+        status.get_carryinggun().GetComponent<GameObject>().SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        fire.SetActive(false) ;
+        status.get_carryinggun().GetComponent<GameObject>().SetActive(false);
     }
 
 }
