@@ -10,16 +10,18 @@ public class gun_status : MonoBehaviour {
     private GameObject carring_gun;
     m4_parametres m4_para;
     g18_parametres g18_para;
+    public bool IsSwitching;
 
     // Use this for initialization
     void Start () {
         m4_para = new m4_parametres();
         g18_para = new g18_parametres();
         carring_gun = m4;
+        IsSwitching = false;
     }
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
         if (m4.activeSelf&& (!g18.activeSelf)) {
             carring_gun = m4;
         }
@@ -33,7 +35,7 @@ public class gun_status : MonoBehaviour {
     }
 
     public gun_parametres get_carrying_parametres() {
-        if (carring_gun = m4) {
+        if (carring_gun == m4) {
             return m4_para;
         }
        else
@@ -41,5 +43,7 @@ public class gun_status : MonoBehaviour {
             return g18_para;
         }
     }
+
+
 
 }

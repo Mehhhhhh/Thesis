@@ -28,7 +28,15 @@ public class Ammo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(totalammo <= 0 && CurrentAmmo <= 0) {
+        if (status.IsSwitching) {
+            status.Update();
+            gun = status.get_carrying_parametres();
+            totalammo = gun.Number_of_total_ammo;
+            CurrentAmmo = gun.Number_of_current_ammo;
+            number_per_clip = gun.Number_per_clip;
+            anim = status.get_carryinggun().GetComponent<Animation>();
+        }
+        if (totalammo <= 0 && CurrentAmmo <= 0) {
             isAuto_reload = false;
             isEmpty = true;
         }

@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class gunpickup : MonoBehaviour {
 
     public float distance;
-    public GameObject display;
     private int allowedrange;
+
+    public GameObject display;
     public GameObject realgun;
     public GameObject holdinggun;
     public GameObject gun_mech;
+    public GameObject player;
+
+    private gun_status status;
   //  public GameObject ammoscript;
 
     Gunfire gf;
@@ -21,11 +25,13 @@ public class gunpickup : MonoBehaviour {
         distance = Playercast.distance_to_target;
         allowedrange = 2;
         gf = (Gunfire)gun_mech.GetComponent("Gunfire");
+        status = player.GetComponent<gun_status>();
         //ammo = (Ammo)ammoscript.GetComponent("Ammo");
     }
 	
 	// Update is called once per frame
 	void Update () {
+        status.IsSwitching = false;
         distance = Playercast.distance_to_target;
         if (distance < allowedrange) {
             if (Input.GetButtonDown("Using"))
@@ -53,6 +59,7 @@ public class gunpickup : MonoBehaviour {
         realgun.SetActive(true);
         this.gameObject.SetActive(false);
         holdinggun.SetActive(false);
+        status.IsSwitching = true;
     }
 
 }

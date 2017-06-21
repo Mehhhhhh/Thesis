@@ -20,8 +20,12 @@ public class Gunfire : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        if (status.IsSwitching) {
+            anim = status.get_carryinggun().GetComponent<Animation>();
+            status.IsSwitching = false;
+        }
         if (Input.GetButtonDown("Fire1")&&anim.IsPlaying("reload") == false)
         {
             if (Ammo.isEmpty == false)
