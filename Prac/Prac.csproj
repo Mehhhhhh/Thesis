@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Playercast.cs" />
     <Compile Include="Assets\Scripts\crosshair.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
+    <Compile Include="Assets\Scripts\gunINFO_display.cs" />
     <Compile Include="Assets\Scripts\gun_status.cs" />
     <Compile Include="Assets\Scripts\gundamage.cs" />
     <Compile Include="Assets\Scripts\gunpickup.cs" />

@@ -15,10 +15,9 @@ public class gunpickup : MonoBehaviour {
     public GameObject player;
 
     private gun_status status;
-  //  public GameObject ammoscript;
+    private Playercast playercast;
 
     Gunfire gf;
-   // Ammo ammo;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +25,7 @@ public class gunpickup : MonoBehaviour {
         allowedrange = 3;
         gf = (Gunfire)gun_mech.GetComponent("Gunfire");
         status = player.GetComponent<gun_status>();
-        //ammo = (Ammo)ammoscript.GetComponent("Ammo");
+        playercast = player.GetComponent<Playercast>();
     }
 	
 	// Update is called once per frame
@@ -34,7 +33,7 @@ public class gunpickup : MonoBehaviour {
         status.IsSwitching = false;
         distance = Playercast.distance_to_target;
         if (distance < allowedrange) {
-            if (Input.GetButtonDown("Using"))
+            if (Input.GetButtonDown("Using")&&playercast.get_targetname()== "g18_fp_model")
             {
                 pickup();
             }
@@ -43,13 +42,14 @@ public class gunpickup : MonoBehaviour {
 
     private void OnMouseOver()
     {
-        if (distance < allowedrange)
-        {
-            display.GetComponent<Text>().text = " Pick up g18";
-        }
-        else {
-            display.GetComponent<Text>().text = " ";
-        }
+            if (distance < allowedrange)
+            {
+                display.GetComponent<Text>().text = " Pick up g18";
+            }
+            else
+            {
+                display.GetComponent<Text>().text = " ";
+            }
     }
 
 
@@ -64,6 +64,7 @@ public class gunpickup : MonoBehaviour {
         this.gameObject.SetActive(false);
         holdinggun.SetActive(false);
         status.IsSwitching = true;
+        display.GetComponent<Text>().text = " ";
     }
 
 }

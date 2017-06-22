@@ -44,6 +44,16 @@ public class gun_status : MonoBehaviour {
         }
     }
 
+    public string get_carringgun_name() {
+        if (carring_gun == m4)
+        {
+            return "m4";
+        }
+        else
+        {
+            return "g18";
+        }
 
+    }
 
 }

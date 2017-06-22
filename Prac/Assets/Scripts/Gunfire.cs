@@ -8,6 +8,8 @@ public class Gunfire : MonoBehaviour
     public GameObject player;
     private Animation anim;
     public GameObject ammo;
+    public GameObject muzzle;
+
     gun_status status;
     Ammo am;
 
@@ -70,10 +72,19 @@ public class Gunfire : MonoBehaviour
     }
 
     private IEnumerator play_muzzleflash() {
-        yield return new WaitForSeconds(0.05f);
-        status.get_carryinggun().GetComponent<GameObject>().SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        status.get_carryinggun().GetComponent<GameObject>().SetActive(false);
+        if (status.get_carringgun_name() == "m4")
+        {
+            yield return new WaitForSeconds(0.05f);
+            GameObject.Find("FPSController/FirstPersonCharacter/m4_fp/muzzleflash").SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            GameObject.Find("FPSController/FirstPersonCharacter/m4_fp/muzzleflash").SetActive(false);
+        }
+        else {
+            yield return new WaitForSeconds(0.05f);
+            GameObject.Find("FPSController/FirstPersonCharacter/g18_fp_real/muzzleflash").SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            GameObject.Find("FPSController/FirstPersonCharacter/g18_fp_real/muzzleflash").SetActive(false);
+        }
     }
 
 }
