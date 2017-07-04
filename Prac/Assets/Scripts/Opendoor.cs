@@ -10,10 +10,13 @@ public class Opendoor : MonoBehaviour {
     public GameObject textarea;
     private float allowed_range;
 
+    private bool isclosed;
+
 	// Use this for initialization
 	void Start () {
         distance = Playercast.distance_to_target;
         allowed_range = 3;
+        isclosed = true;
     }
 
     // Update is called once per frame
@@ -26,7 +29,10 @@ public class Opendoor : MonoBehaviour {
     {
         if (distance < allowed_range) {
                textarea.GetComponent<Text>().text = "Press E to open";
-               StartCoroutine(opendoor());
+            if (Input.GetButtonDown("Using"))
+            {
+                StartCoroutine(opendoor());
+            }
         }
     }
 
@@ -36,15 +42,17 @@ public class Opendoor : MonoBehaviour {
     }
 
     private IEnumerator opendoor() {
-        if (Input.GetButtonDown("Using"))
+        if (door.GetComponent<Animator>().enabled == false && isclosed == true)
         {
             door.GetComponent<Animator>().enabled = true;
             yield return new WaitForSeconds(1f);
             door.GetComponent<Animator>().enabled = false;
+            isclosed = false;
             yield return new WaitForSeconds(3f);
             door.GetComponent<Animator>().enabled = true;
             yield return new WaitForSeconds(1f);
             door.GetComponent<Animator>().enabled = false;
+            isclosed = true;
         }
     }
 
