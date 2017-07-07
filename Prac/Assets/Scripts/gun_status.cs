@@ -12,8 +12,9 @@ public class gun_status : MonoBehaviour {
     g18_parametres g18_para;
     public bool IsSwitching;
 
+
     // Use this for initialization
-    void Start () {
+    private void Awake() { 
         m4_para = new m4_parametres();
         g18_para = new g18_parametres();
         carring_gun = m4;

@@ -103,4 +103,12 @@ public class Ammo : MonoBehaviour {
         return totalammo;
     }
 
+    public int getCurrentammo()
+    {
+        return CurrentAmmo;
+    }
+
+    public int getammoperclip() {
+        return number_per_clip;
+    }
 }

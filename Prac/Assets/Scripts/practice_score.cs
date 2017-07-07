@@ -17,6 +17,12 @@ public class practice_score : MonoBehaviour {
         this.score = score;
     }
 
+    public int getScore()
+    {
+        return score;
+    }
+
+
     private void Update()
     {
         scoredisplay.GetComponent<Text>().text = "" + score;

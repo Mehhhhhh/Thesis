@@ -15,7 +15,7 @@ public class Opendoor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         distance = Playercast.distance_to_target;
-        allowed_range = 3;
+        allowed_range = 1.5f;
         isclosed = true;
     }
 

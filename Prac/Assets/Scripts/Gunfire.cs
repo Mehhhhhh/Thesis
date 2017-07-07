@@ -42,7 +42,7 @@ public class Gunfire : MonoBehaviour
             gun_anim_reload();
         }
 
-        if (Input.GetButtonDown("Reload") && anim.IsPlaying("fire") == false && am.getTotalammo() != 0)
+        if (Input.GetButtonDown("Reload") && anim.IsPlaying("fire") == false && am.getTotalammo() != 0 && !(am.getCurrentammo() == am.getammoperclip()))
         {
             gun_anim_reload();
         }
