@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\guns\g18_parametres.cs" />
     <Compile Include="Assets\Scripts\guns\gun_parametres.cs" />
     <Compile Include="Assets\Scripts\guns\m4_parametres.cs" />
+    <Compile Include="Assets\Scripts\practice_score.cs" />
     <Compile Include="Assets\Scripts\randomlight.cs" />
   </ItemGroup>
   <ItemGroup>
